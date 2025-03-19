@@ -26,7 +26,12 @@ mongoose.connection.on("disconnected", () => {
 })
 
 //middlewares
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["http://localhost:3001", "https://booking-app-admin-chi.vercel.app"],
+        credentials: true,
+    }
+));
 app.use(cookieParser());
 app.use(express.json());
 
