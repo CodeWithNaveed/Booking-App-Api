@@ -28,13 +28,17 @@ mongoose.connection.on("disconnected", () => {
 
 //middlewares
 app.use(cors({
-    origin: ["http://localhost:3000", "https://booking-app-client.vercel.app"],
+    origin: [
+        "http://localhost:3000",
+        "https://booking-app-client-beta.vercel.app",
+        "https://booking-app-admin-chi.vercel.app"
+    ],
     credentials: true,
 }));
 app.use(express.json());
 app.use(cookieParser());
 
-
+// "https://booking-app-admin-chi.vercel.app/login"
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
