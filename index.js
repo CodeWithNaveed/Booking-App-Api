@@ -25,13 +25,14 @@ mongoose.connection.on("disconnected", () => {
     console.log("mongoDB disconnected!");
 })
 
+
 //middlewares
 app.use(cors({
     origin: ["http://localhost:3000", "https://booking-app-client.vercel.app"],
     credentials: true,
 }));
-app.use(cookieParser());
 app.use(express.json());
+app.use(cookieParser());
 
 
 
