@@ -30,7 +30,7 @@ export const login = async (req, res, next) => {
             user.password
         );
 
-        if (!isPasswordCorrect) return next(createError(400, "Wrong credentials!"));
+        if (!isPasswordCorrect) return res.status(400).json("Wrong credentials!");
 
         if (!user.isAdmin) return res.status(403).json("You are not an admin!");
 
