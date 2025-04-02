@@ -38,8 +38,6 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// "https://booking-app-admin-chi.vercel.app/login"
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);

@@ -92,10 +92,24 @@ export const changePassword = async (req, res, next) => {
     }
 };
 
+// export const signout = async (req, res, next) => {
+//     try {
+//         res.clearCookie("access_token");
+//         res.status(200).send("Logged out successfully!");
+//     } catch (err) {
+//         next(err);
+//     }
+// };
+
+
 export const signout = async (req, res, next) => {
     try {
         res.clearCookie("access_token");
-        res.status(200).send("Logged out successfully!");
+        res.status(200).json({ 
+            message: "Logged out successfully!",
+            // You can include instructions for the client here if needed
+            clientActions: ["clearLocalStorage", "reloadPage"]
+        });
     } catch (err) {
         next(err);
     }
